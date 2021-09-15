@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from "../Footer/Footer";
 import Form from "../Form/Form";
 import Header from "../Header/Header";
 import TodoList from "../TodoList/TodoList";
@@ -18,9 +19,10 @@ const Todo = () => {
 
     return (
         <>
-            <Header />
+            <Header title="Simple Todo" />
             <Form addItem={addItem} />
             <TodoList todos={todos} deleteItem={deleteItem} />
+            <Footer footer="todo" />
         </>
     );
 };
