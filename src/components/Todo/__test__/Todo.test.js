@@ -1,5 +1,16 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import Todo from "../Todo";
+
+// 하위 컴포넌트에서 Link를 사용중임
+// <Todo /> 만 사용하면 BrowserRouter로 감싸져있지 않아서 오류가 난다.
+const RouterTodo = () => {
+    return (
+        <BrowserRouter>
+            <Todo />
+        </BrowserRouter>
+    );
+};
 
 const addTodo = (todos) => {
     const inputEl = screen.getByPlaceholderText("text here");
@@ -15,9 +26,9 @@ const addTodo = (todos) => {
     });
 };
 
-describe("TodoItem", () => {
+describe("Todo", () => {
     beforeEach(() => {
-        render(<Todo />);
+        render(<RouterTodo />);
     });
     test("input에 입력한 텍스트가 제대로 TodoItem에 출력되는가", () => {
         addTodo(["다이소 가기"]);
