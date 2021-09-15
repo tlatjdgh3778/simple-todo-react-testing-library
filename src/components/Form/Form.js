@@ -12,10 +12,13 @@ const Form = ({ addItem }) => {
         addItem(value);
         setValue("");
     };
+
     return (
         <div>
             <input type="text" onChange={onChange} value={value} placeholder="text here"></input>
-            <button onClick={onClick}>추가하기</button>
+            <button data-testid="button" onClick={onClick}>
+                추가하기
+            </button>
         </div>
     );
 };

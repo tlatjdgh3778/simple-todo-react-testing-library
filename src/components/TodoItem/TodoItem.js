@@ -13,11 +13,16 @@ const TodoItem = ({ todo, id, deleteItem }) => {
 
     return (
         <div>
+            <span>{id + 1} </span>
             <span style={{ textDecoration: state === "완료" ? "none" : "line-through" }}>
-                {id + 1} {todo}
+                {todo}
             </span>
-            <button onClick={updateTodo}>{state}</button>
-            <button onClick={onClick}>삭제</button>
+            <button data-testid="update-btn" onClick={updateTodo}>
+                {state}
+            </button>
+            <button data-testid="delete-btn" onClick={onClick}>
+                삭제
+            </button>
         </div>
     );
 };
