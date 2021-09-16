@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./UserList.css";
 
 const UserList = () => {
@@ -6,10 +7,9 @@ const UserList = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch("https://randomuser.me/api/?results=5");
-            const data = await response.json();
+            const response = await axios.get("https://randomuser.me/api/?results=5");
 
-            setUsers(data.results);
+            setUsers(response.data.results);
         };
 
         fetchData();
@@ -17,9 +17,9 @@ const UserList = () => {
 
     console.log(users);
     return (
-        <div>
-            {users.map((user) => (
-                <div className="user-container">
+        <div className="userlist-container">
+            {users.map((user, index) => (
+                <div key={index} className="user-container" data-testid={`user-${index}`}>
                     <img className="picture" src={user.picture.large} alt={user.name.first} />
                     <div className="name">
                         {user.name.first} {user.name.last}
