@@ -1,0 +1,19 @@
+.user-container {
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.picture {
+    border-radius: 50%;
+}
+
+.name {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.city {
+    color: #121212;
+    font-size: 1.2rem;
+}
