@@ -18,4 +18,4 @@
         -   Go User Page를 눌렀을 때 잘 이동하는가
 
 -   User.js
-    -   UserList가 잘 
+    -   UserList가 잘 렌더링 되는가
